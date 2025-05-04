@@ -1,0 +1,27 @@
+{
+  "name": "voice-assistant",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enigma2210/krishisetu-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enigma2210/krishisetu-ai/issues"
+  },
+  "homepage": "https://github.com/enigma2210/krishisetu-ai#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-cache": "^5.1.2"
+  }
+}
