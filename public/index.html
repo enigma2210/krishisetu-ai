@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multilingual Q&A Portal</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="header">
+      <h1><i class="fas fa-comments"></i> <span data-key="title">Multilingual Q&A Portal</span></h1>
+      <p><span data-key="subtitle">Get answers in your preferred language via text or voice</span></p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="main-content">
+      <!-- Language Selector Button (floating) -->
+      <button class="translate-btn" id="translateBtn">
+        <i class="fas fa-language"></i>
+        <span data-key="currentLanguage">English</span>
+      </button>
+
+      <!-- Weather Dashboard Button (new) -->
+      <button class="weather-btn" id="weatherBtn">
+        <i class="fas fa-cloud-sun"></i>
+        <span data-key="weatherButton">Weather Dashboard </span>
+      </button>
+
+      <!-- Language Selection Modal -->
+      <div class="language-modal" id="languageModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>
+              <i class="fas fa-globe-asia"></i>
+              <span data-key="modalTitle">Select Your Language</span>
+            </h2>
+            <button class="close-btn">&times;</button>
+          </div>
+          
+          <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search languages..." id="languageSearch" data-key="searchPlaceholder">
+          </div>
+          
+          <div class="language-grid" id="languageGrid">
+            <!-- Language cards will be inserted here by JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Weather Dashboard Modal (new) -->
+      <div class="weather-modal" id="weatherModal">
+        <div class="weather-modal-content">
+          <span class="weather-close-btn">&times;</span>
+          <iframe id="weatherIframe" src="weather-app/index.html" 
+                  style="width:100%; height:80vh; border:none;"></iframe>
+        </div>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="tabs">
+        <button class="tab-button active" onclick="switchTab('text')">
+          <i class="fas fa-keyboard"></i> <span data-key="textTab">Text Input</span>
+        </button>
+        <button class="tab-button" onclick="switchTab('audio')">
+          <i class="fas fa-microphone"></i> <span data-key="voiceTab">Voice Input</span>
+        </button>
+      </div>
+
+      <!-- Tab Contents -->
+      <div class="tab-contents">
+        <!-- Text Input Tab -->
+        <div id="textTab" class="tab-content active">
+          <div class="input-group">
+            <textarea id="textInput" placeholder="Type your question here..." data-key="textPlaceholder"></textarea>
+            <button onclick="submitText()" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> <span data-key="submitText">Submit</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Audio Input Tab -->
+        <div id="audioTab" class="tab-content">
+          <div class="audio-controls">
+            <button id="recordButton" class="record-btn" onclick="toggleRecording()">
+              <i class="fas fa-microphone"></i>
+              <span id="recordText" data-key="recordButton">Start Recording</span>
+            </button>
+            <p id="recordingStatus" data-key="recordingStatus">Ready to record</p>
+            <button id="submitAudio" class="submit-btn" onclick="submitAudio()" disabled>
+              <i class="fas fa-paper-plane"></i> <span data-key="submitAudio">Submit Recording</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status Messages -->
+      <div class="status-messages">
+        <p id="apiStatus" data-key="apiStatusReady">Ready</p>
+        <p id="errorMessage" class="error"></p>
+      </div>
+
+      <!-- Response Section -->
+      <div id="responseSection" class="response-section" style="display: none;">
+        <h3><i class="fas fa-reply"></i> <span data-key="responseTitle">Response</span></h3>
+        <div id="textResponse" class="text-response"></div>
+        <audio id="audioResponse" controls style="display: none;"></audio>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p><span data-key="footerText">© 
+        . All rights reserved.</span></p>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Weather Dashboard functionality (new)
+    const weatherBtn = document.getElementById('weatherBtn');
+    const weatherModal = document.getElementById('weatherModal');
+    const weatherCloseBtn = document.querySelector('.weather-close-btn');
+
+    weatherBtn.addEventListener('click', () => {
+      weatherModal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    });
+
+    weatherCloseBtn.addEventListener('click', () => {
+      weatherModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target === weatherModal) {
+        weatherModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+</html>

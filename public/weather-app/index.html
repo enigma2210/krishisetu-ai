@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-cloud-sun"></i> <span data-translate="app_title">Weather Intelligence</span></h1>
+            <div class="header-controls">
+                <div class="language-selector">
+                    <select id="languageSelect" class="styled-select">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी (Hindi)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="ta">தமிழ் (Tamil)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="bn">বাংলা (Bengali)</option>
+                    </select>
+                </div>
+                <div class="location-display">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="city" data-translate="detecting_location">Detecting location...</span>
+                </div>
+                <div class="last-updated" id="lastUpdated"></div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="weather-selector">
+                    <select id="forecastType" class="styled-select">
+                        <option value="current" data-translate="current_weather">Current Weather</option>
+                        <option value="7day" data-translate="7day_forecast">7-Day Forecast</option>
+                    </select>
+                    <button id="refreshBtn" class="refresh-button">
+                        <i class="fas fa-sync-alt"></i> <span data-translate="refresh">Refresh</span>
+                    </button>
+                </div>
+
+                <div class="location-selector">
+                    <div class="state-district-selector" id="stateDistrictSelector">
+                        <select id="stateSelect" class="styled-select">
+                            <option value="" data-translate="select_state">Select State</option>
+                        </select>
+                        <select id="districtSelect" class="styled-select" disabled>
+                            <option value="" data-translate="select_district">Select District</option>
+                        </select>
+                    </div>
+                    <div class="gps-toggle">
+                        <input type="checkbox" id="useGPS">
+                        <label for="useGPS" data-translate="use_my_location">Use my location</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-display" id="weatherData">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p data-translate="loading_data">Loading weather data...</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <p data-translate="data_provided_by">Data provided by IMD (India Meteorological Department)</p>
+            <p class="credits">© <span data-translate="current_year">2023</span> <span data-translate="weather_intelligence">Weather Intelligence Dashboard</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
