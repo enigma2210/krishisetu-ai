@@ -137,7 +137,7 @@ async function callKissanAPI(payload) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 30000);
 
-        const response = await fetch('/api/kissangpt', {
+        const response = await fetch('https://krishisetu-ai.catoff.xyz/api/kissangpt', {
             method: 'POST',
             body: payload,
             signal: controller.signal
