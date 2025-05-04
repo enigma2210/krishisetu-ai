@@ -1,1 +1,0 @@
-# krishisetu-ai
