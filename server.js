@@ -203,6 +203,10 @@ app.use((err, req, res, next) => {
     next(err);
 });
 
+app.get('/api/test', (req, res) => {
+    res.send('hello');
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
     console.log('Supported languages:', Object.entries(SUPPORTED_LANGUAGES).map(([code, name]) => `${code}: ${name}`).join(', '));
