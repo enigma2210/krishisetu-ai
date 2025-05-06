@@ -2,7 +2,7 @@
 
 **Your Intelligent Farming Assistant** - A multilingual voice and text-based Q&A portal with integrated weather forecasting for Indian farmers.
 
-![App Screenshot](public/assets/screenshot.png) <!-- Add your screenshot path here -->
+![App Screenshot](public/assets/Portal-screenshot.png) <!-- Add your screenshot path here -->
 
 ## Key Features
 
