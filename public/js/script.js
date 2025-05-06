@@ -644,7 +644,7 @@ window.addEventListener('click', (e) => {
 
 // Initialize the language functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    currentLanguage = localStorage.getItem('selectedLanguage') || 'hi';
     
     initLanguageGrid();
     updateSelectedLanguageUI();
@@ -653,8 +653,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // Set initial language button text
-    const englishLang = languages.find(lang => lang.code === 'en');
-    if (englishLang && translateBtn) {
-        translateBtn.querySelector('span').textContent = englishLang.name;
+    const hindiLang = languages.find(lang => lang.code === 'hi');
+    if (hindiLang && translateBtn) {
+        translateBtn.querySelector('span').textContent = hindiLang.name;
     }
 });
