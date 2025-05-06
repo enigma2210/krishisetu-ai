@@ -554,7 +554,7 @@
 /* Weather Button */
 .weather-btn {
   position: absolute;
-  bottom: 30px;
+  bottom: 7px;
   left: 30px;
   background: var(--primary);
   color: white;
